@@ -1,5 +1,7 @@
+#!/usr/bin/python3
 import uuid
 import datetime
+import json
 """
     Base class
 """
@@ -20,9 +22,8 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
 
     def to_dict(self):
-        self.__dict__[self.created_at] = self.created_at.isoformat()
-        self.__dict__[self.created_at] = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        self.__dict__[self.updated_at] = self.updated_at.isoformat()
-        self.__dict__[self.updated_at] = self.updated_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        self.__dict__["__class__"] = self.__class__.__name__
-        return f"{self.__dict__}"
+        newdict = self.__dict__.copy()
+        newdict['__class__'] = type(self).__name__
+        newdict['created_at'] = self.created_at.isoformat()
+        newdict['updated_at'] = self.updated_at.isoformat()
+        return newdict
