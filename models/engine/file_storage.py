@@ -26,7 +26,10 @@ class FileStorage:
 
     def reload(self):
         try:
-            with open('file.json', "r") as f:
-                FileStorage.__objects = json.loads(f.read())
+            with open(self.__file_path, "r") as file_path:
+                objdict = json.load(file_path).items()
+                for k, v in objdict:
+                    v  = eval(k.split(".")[0])(**v)
+                    self.__objects[k] = v
         except Exception:
             pass
