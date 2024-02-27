@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from uuid import uuid4
 from datetime import datetime
-from __init__ import storage
+from models import storage
 import json
 """
     Base class
