@@ -11,18 +11,22 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
-        self.__objects = obj
+        key = f"{type(obj).__name__}.{obj.id}"
+        FileStorage.__objects[key] = obj
 
     def save(self):
+        new_dict = {}
+        for k in self.__objects:
+            new_dict[k] = self.__objects[k].to_dict()
         with open('file.json', "w") as f:
-            f.write(json.dumps(__class__.__objects))
+            json.dump(new_dict, f)
 
     def reload(self):
         try:
             with open('file.json', "r") as f:
-                self.__objects = json.load(f.read())
+                FileStorage.__objects = json.loads(f.read())
         except Exception:
             pass
