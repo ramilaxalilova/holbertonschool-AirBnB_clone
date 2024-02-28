@@ -11,6 +11,8 @@ class BaseModel:
     """ Class """
 
     def __init__(self, *args, **kwargs):
+        from models import storage
+
         if (kwargs != {}):
             for key, value in kwargs.items():
                 if key == 'id':
@@ -20,7 +22,6 @@ class BaseModel:
                 elif key == 'updated_at':
                     self.updated_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
         else:
-            from models import storage
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
