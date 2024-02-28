@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 from uuid import uuid4
 from datetime import datetime
-import models
+
 """
     Base class
 """
@@ -20,17 +20,19 @@ class BaseModel:
                 elif key == 'updated_at':
                     self.updated_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
         else:
+            from models import storage
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
+        from models import storage
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
         return self.updated_at
 
     def to_dict(self):
