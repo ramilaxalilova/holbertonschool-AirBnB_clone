@@ -30,7 +30,7 @@ class BaseModel:
 
         dct = self.__dict__.copy()
         for key, value in dct.items():
-            if key == "created_at" or key == "updated_at":
-                value = value.isoformat()
+            if type(value) is datetime:
+                dct[key] = value.isoformat()
         dct['__class__'] = type(self).__name__
         return dct
