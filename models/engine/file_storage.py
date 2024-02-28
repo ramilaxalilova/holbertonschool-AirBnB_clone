@@ -25,7 +25,7 @@ class FileStorage:
             json.dump(new_dict, f)
 
     def reload(self):
-        from models.base_model import BaseModel()
+        from models.base_model import BaseModel
 
         try:
             with open(self.__file_path, "r") as file_path:
