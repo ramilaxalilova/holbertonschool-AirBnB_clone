@@ -31,7 +31,6 @@ class BaseModel:
     def save(self):
         self.updated_at = datetime.now()
         models.storage.save()
-        return self.updated_at
 
     def to_dict(self):
         newdict = self.__dict__.copy()
