@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-"""
-    Defines the HBnB console.
-"""
-
 
 import cmd
 from models.base_model import BaseModel
 from models import storage
+"""
+    Defines the HBnB console.
+"""
 
 
 class HBNBCommand(cmd.Cmd):
