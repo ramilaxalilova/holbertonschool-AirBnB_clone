@@ -1,4 +1,4 @@
-import engine
+from .engine.file_storage import FileStorage
 
-item = engine.file_storage.FileStorage()
+item = FileStorage()
 item.reload()
