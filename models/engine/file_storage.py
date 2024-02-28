@@ -25,13 +25,13 @@ class FileStorage:
             json.dump(new_dict, f)
 
     def reload(self):
-        from models import base_model.BaseModel()
+        from models.base_model import BaseModel()
 
         try:
             with open(self.__file_path, "r") as file_path:
                 objdict = json.load(file_path).items()
                 for k, v in objdict:
-                    obje = base_model.BaseModel(**v)
+                    obje = BaseModel(**v)
                     ###v  = eval(k.split(".")[0])(**v)
                     self.__objects[k] = obje
         except Exception:
