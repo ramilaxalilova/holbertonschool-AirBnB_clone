@@ -1,5 +1,4 @@
 import json
-from models.base_model import BaseModel
 """
     File storage class
 """
@@ -26,6 +25,8 @@ class FileStorage:
             json.dump(new_dict, f)
 
     def reload(self):
+        from models.base_model import BaseModel
+
         try:
             with open(self.__file_path, "r") as file_path:
                 objdict = json.load(file_path).items()
