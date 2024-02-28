@@ -1,6 +1,7 @@
+#!/usr/bin/python3
+"""Defines the HBnB console."""
 import cmd
-from models.base_model import BaseModel
-from models import storage
+
 
 class HBNBCommand(cmd.Cmd):
     """Command interpreter for the HBNB console."""
@@ -19,6 +20,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Do nothing when an empty line is entered."""
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
