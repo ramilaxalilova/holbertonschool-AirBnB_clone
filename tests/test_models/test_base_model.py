@@ -2,6 +2,7 @@
 from unittest import TestCase
 from models.base_model import BaseModel
 
+
 class TestBaseModel(TestCase):
     def setUp(self):
         self.b1 = BaseModel()
