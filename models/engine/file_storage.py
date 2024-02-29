@@ -11,7 +11,7 @@ class FileStorage:
         objects is dictionary
     """
 
-    __file_path = 'file.json'
+    __file_path = 'hbbnb.json'
     __objects = {}
 
     def all(self):
@@ -37,7 +37,7 @@ class FileStorage:
         """ load from file """
 
         try:
-            with open(FileStorage.__file_path, "r") as read:
+            with open(self.__file_path, "r") as read:
                 tmp = json.load(read)
             for key, value in tmp.items():
                 FileStorage.__objects[key] = base_model.BaseModel(**tmp[key])
