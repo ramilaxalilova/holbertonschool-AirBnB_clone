@@ -30,7 +30,7 @@ class FileStorage:
         dct1 = {}
         for key, value in FileStorage.__objects.items():
             dct1[key] = value.to_dict()
-        with open(FileStorage.__file_path, 'w') as write:
+        with open(self.__file_path, 'w') as write:
             json.dump(dct1, write)
 
     def reload(self):
