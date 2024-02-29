@@ -30,14 +30,14 @@ class FileStorage:
         dct1 = {}
         for key, value in FileStorage.__objects.items():
             dct1[key] = value.to_dict()
-        with open(self.__file_path, 'w') as write:
+        with open(FileStorage.__file_path, 'w') as write:
             json.dump(dct1, write)
 
     def reload(self):
         """ load from file """
 
         try:
-            with open(self.__file_path, "r") as read:
+            with open(FileStorage.__file_path, "r") as read:
                 tmp = json.load(read)
             for key, value in tmp.items():
                 FileStorage.__objects[key] = base_model.BaseModel(**tmp[key])
