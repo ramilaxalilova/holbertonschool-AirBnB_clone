@@ -17,7 +17,7 @@ class FileStorage:
         objects is dictionary
     """
 
-    __file_path = 'hbbnb.json'
+    __file_path = 'file.json'
     __objects = {}
 
     def all(self):
