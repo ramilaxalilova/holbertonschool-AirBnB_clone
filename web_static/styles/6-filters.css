@@ -17,10 +17,12 @@
     border-radius: 4px;
     float: right;
     margin: 11px 30px;
+    margin-left: 120px;
+    right: 0;
 }
 
 .filters button:hover {
-    opacity: 90%;
+    opacity: 0.9;
 }
 
 .filters .locations {
@@ -28,21 +30,59 @@
     width: 25%;
     border-right: 1px solid #dddddd;
     padding-left: 50px;
+    position: relative;
 }
 
 .filters .amenities {
     height: 100%;
     width: 25%;
     padding-left: 50px;
+    position: relative;
 }
 
 .filters h3 {
     font-weight: 600;
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 .filters h4 {
     font-weight: 400;
     font-size: 14px;
     margin-top: 5px;
+}
+
+.popover h2 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 25px;
+}
+
+.popover ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 25px;
+    padding-bottom: px;
+}
+
+.popover li {
+    padding: 5px;
+}
+
+.filters .popover {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fafafa;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+    display: block;
 }
