@@ -4,6 +4,7 @@
     width: 100%;
     border: 1px solid #dddddd;
     border-radius: 4px;
+    display: flex;
 }
 .filters button {
     font-size: 18px;
@@ -19,4 +20,28 @@
 
 .filters button:hover {
     opacity: 90%;
+}
+
+.filters .locations {
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid #dddddd;
+    padding-left: 50px;
+}
+
+.filters .amenities {
+    height: 100%;
+    width: 25%;
+    padding-left: 50px;
+}
+
+.filters h3 {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 5px;
 }
